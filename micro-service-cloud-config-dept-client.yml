@@ -77,7 +77,7 @@ spring:
     # mysql驱动包
     driver-class-name: com.mysql.cj.jdbc.Driver
     # 数据库名称
-    url: jdbc:mysql://192.168.188.129:3306/cloundDB01
+    url: jdbc:mysql://192.168.188.129:3306/cloundDB02
     username: root
     password: 123456
     initialization-mode: always
