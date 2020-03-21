@@ -1,0 +1,107 @@
+spring: 
+	profiles:
+		active:
+			- dev
+---
+server:
+  port: 8001
+
+mybatis:
+  # mybatis配置文件所在路径
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  # 所有Entity别名类所在包
+  type-aliases-package: com.lwy.springcloud.entities
+  # mapper映射文件
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml
+
+spring:
+	profiles: dev
+  application:
+    name: micro-service-cloud-dept
+  datasource:
+    # 当前数据源操作类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    # mysql驱动包
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 数据库名称
+    url: jdbc:mysql://192.168.188.129:3306/cloundDB01
+    username: root
+    password: 123456
+    initialization-mode: always
+    druid:
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      filters: stat,wall
+      stat-view-servlet:
+        login-username: admin
+        login-password: 123456
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+      #defaultZone: http://localhost:7001/eureka/ #设置与Eureka Server交互的地址
+
+  instance:
+    instance-id: micro-service-cloud-dept-8001 #修改服务名称
+    prefer-ip-address: true #访问路径可以显示IP地址
+
+#info信息构建，配合主pom文件中的build使用
+info:
+  app.name: lwy-micro-service-cloud-dev
+  company.name: www.lwy.com
+  build.artifactId: ${project.artifactId}$
+  build.version: ${project.version}$
+  
+---
+server:
+  port: 8001
+
+mybatis:
+  # mybatis配置文件所在路径
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  # 所有Entity别名类所在包
+  type-aliases-package: com.lwy.springcloud.entities
+  # mapper映射文件
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml
+
+spring:
+	profiles: test
+  application:
+    name: micro-service-cloud-dept
+  datasource:
+    # 当前数据源操作类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    # mysql驱动包
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 数据库名称
+    url: jdbc:mysql://192.168.188.129:3306/cloundDB01
+    username: root
+    password: 123456
+    initialization-mode: always
+    druid:
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      filters: stat,wall
+      stat-view-servlet:
+        login-username: admin
+        login-password: 123456
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+      #defaultZone: http://localhost:7001/eureka/ #设置与Eureka Server交互的地址
+
+  instance:
+    instance-id: micro-service-cloud-dept-8001 #修改服务名称
+    prefer-ip-address: true #访问路径可以显示IP地址
+
+#info信息构建，配合主pom文件中的build使用
+info:
+  app.name: lwy-micro-service-cloud-test
+  company.name: www.lwy.com
+  build.artifactId: ${project.artifactId}$
+  build.version: ${project.version}$
