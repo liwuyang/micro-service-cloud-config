@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active:
+      - dev
+---
+spring:
+  profiles: dev
+  application:
+    name: micro-service-cloud-config-lwy-dev     
+---
+spring:
+  profiles: test
+  application:
+    name: micro-service-cloud-config-lwy-test
