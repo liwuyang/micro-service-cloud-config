@@ -1,7 +1,7 @@
-spring: 
-	profiles:
-		active:
-			- dev
+spring:
+  profiles:
+    active:
+      - dev
 ---
 server:
   port: 8001
@@ -16,7 +16,7 @@ mybatis:
     - classpath:mybatis/mapper/**/*.xml
 
 spring:
-	profiles: dev
+  profiles: dev
   application:
     name: micro-service-cloud-dept
   datasource:
@@ -68,7 +68,7 @@ mybatis:
     - classpath:mybatis/mapper/**/*.xml
 
 spring:
-	profiles: test
+  profiles: test
   application:
     name: micro-service-cloud-dept
   datasource:
